@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GT7 Lap Tracker Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>GT7 Lap Tracker Pro</h1>
+    <nav>
+      <button onclick="showSection('dashboard')">Dashboard</button>
+      <button onclick="showSection('registro')">Registrar Vuelta</button>
+      <button onclick="showSection('historial')">Historial</button>
+      <button onclick="showSection('estadisticas')">Estadísticas</button>
+      <button onclick="showSection('configuracion')">Configuración</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Dashboard -->
+    <section id="dashboard" class="active card">
+      <h2>Dashboard</h2>
+      <div class="stats">
+        <div class="stat-card"><span>Total Vueltas:</span> <span id="totalVueltas">0</span></div>
+        <div class="stat-card"><span>Mejor Tiempo:</span> <span id="mejorTiempo">-</span></div>
+        <div class="stat-card"><span>Promedio:</span> <span id="promedioTiempo">-</span></div>
+        <div class="stat-card"><span>Última Sesión:</span> <span id="ultimaSesion">-</span></div>
+        <div class="stat-card"><span>Total Circuitos:</span> <span id="totalCircuitos">0</span></div>
+      </div>
+    </section>
+
+    <!-- Registro -->
+    <section id="registro" class="card">
+      <h2>Registrar Vuelta</h2>
+      <form id="lapForm">
+        <input type="text" id="circuito" placeholder="Circuito" required>
+        <input type="text" id="auto" placeholder="Auto" required>
+        <select id="categoria" required>
+          <option value="">Categoría</option>
+          <option>Gr.1</option><option>Gr.2</option><option>Gr.3</option><option>Gr.4</option>
+        </select>
+        <input type="number" id="pp" placeholder="PP" required>
+        <input type="number" id="potencia" placeholder="Potencia (HP)" required>
+        <input type="date" id="fecha" required>
+        <input type="text" id="tiempo" placeholder="Tiempo (mm:ss.mmm)" required>
+        <input type="number" id="posicion" placeholder="Posición obtenida" required>
+        <textarea id="notas" placeholder="Notas"></textarea>
+        <button type="submit">Guardar Vuelta</button>
+      </form>
+    </section>
+
+    <!-- Historial -->
+    <section id="historial" class="card">
+      <h2>Historial</h2>
+      <div class="filters">
+        <input type="text" id="buscarCircuito" placeholder="Buscar por circuito">
+        <input type="text" id="buscarAuto" placeholder="Buscar por auto">
+        <button onclick="exportCSV()">Exportar CSV</button>
+        <input type="file" id="importFile" accept=".csv" onchange="importCSV(event)">
+      </div>
+      <table id="tablaHistorial">
+        <thead>
+          <tr>
+            <th onclick="ordenar('circuito')">Circuito</th>
+            <th onclick="ordenar('auto')">Auto</th>
+            <th onclick="ordenar('tiempo')">Tiempo</th>
+            <th onclick="ordenar('fecha')">Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Estadísticas -->
+    <section id="estadisticas" class="card">
+      <h2>Estadísticas</h2>
+      <ul id="statsList"></ul>
+    </section>
+
+    <!-- Configuración -->
+    <section id="configuracion" class="card">
+      <h2>Configuración</h2>
+      <button onclick="toggleTheme()">Cambiar Tema</button>
+      <button onclick="borrarTodo()">Borrar Todos los Registros</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>GT7 Lap Tracker Pro © 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

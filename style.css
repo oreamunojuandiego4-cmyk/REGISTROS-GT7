@@ -1,0 +1,132 @@
+:root {
+  --bg-dark: #0a0a0a;
+  --bg-light: #f5f5f5;
+  --primary: #00bfff;
+  --text-dark: #ffffff;
+  --text-light: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  transition: background 0.5s, color 0.5s;
+}
+
+header {
+  background: rgba(0,0,0,0.8);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+
+nav button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+nav button:hover {
+  transform: scale(1.1);
+}
+
+main {
+  padding: 1rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stat-card {
+  flex: 1;
+  background: rgba(0,0,0,0.6);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+form input, form select, form textarea, form button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: none;
+}
+
+form button {
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 0.7rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+table th {
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.filters {
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0,0,0,0.8);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.light-mode {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.light-mode header, .light-mode footer {
+  background: rgba(255,255,255,0.8);
+}
+
+.light-mode .card {
+  background: rgba(0,0,0,0.05);
+}
+
