@@ -55,8 +55,8 @@
     <section id="historial" class="card">
       <h2>Historial</h2>
       <div class="filters">
-        <input type="text" id="buscarCircuito" placeholder="Buscar por circuito">
-        <input type="text" id="buscarAuto" placeholder="Buscar por auto">
+        <input type="text" id="buscarCircuito" placeholder="Buscar por circuito" oninput="actualizarHistorial()">
+        <input type="text" id="buscarAuto" placeholder="Buscar por auto" oninput="actualizarHistorial()">
         <button onclick="exportCSV()">Exportar CSV</button>
         <input type="file" id="importFile" accept=".csv" onchange="importCSV(event)">
       </div>
@@ -95,4 +95,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
